@@ -26,6 +26,9 @@ const config: Config = {
       "2xl": "1440px", // => @media (min-width: 1440px) { ... }
     },
   },
+  corePlugins: {
+    fill: true,
+  },
   plugins: [],
 };
 export default config;

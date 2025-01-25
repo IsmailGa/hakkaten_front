@@ -6,7 +6,7 @@ import { cookies } from "next/headers";
 
 
 export default function Something() {
-  const theme = cookies().get('theme')?.value || 'light';
+  const theme = cookies().get('theme')?.value || 'dark';
   return (
     <>
       <Header />

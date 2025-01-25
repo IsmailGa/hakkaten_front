@@ -9,7 +9,11 @@ const PostsSection = () => {
     const handleLike = (postId: string) => {
         setLikedPosts(prev => {
             const newSet = new Set(prev);
-            newSet.has(postId) ? newSet.delete(postId) : newSet.add(postId);
+            if (newSet.has(postId)) {
+                newSet.delete(postId);
+            } else {
+                newSet.add(postId);
+            }
             return newSet;
         });
     };

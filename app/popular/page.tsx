@@ -3,10 +3,10 @@ import SideBar from "@/components/main/Sidebar";
 import { cookies } from "next/headers";
 
 
-const theme = cookies().get('theme')?.value || 'light';
 
 
 export default function Home() {
+    const theme = cookies().get('theme')?.value || 'light';
     return (
         <>
             <Header />

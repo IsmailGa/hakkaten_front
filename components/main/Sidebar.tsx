@@ -65,6 +65,7 @@ const SideBar = ({ theme }: { theme: string }) => {
                 <div className="w-full flex flex-col gap-[15px] mt-[25px]">
                     <button className="flex items-center justify-between rounded-[45px] h-[45px] px-[15px] w-full dark:text-[#DADADA] text-[black]">
                         Resources
+                        {/* ARROW DOWn */}
                         <div className="relative">
                             <span className="border-[1px] w-[12px] rounded-[20px] absolute -translate-x-[55%] right-[50%] top-[50%] translate-y-[-50%] rotate-[50deg]  bg-[#9B9C9C]"></span>
                             <span className="border-[1px] w-[12px] rounded-[20px] absolute translate-x-[0%] right-[50%] top-[50%] translate-y-[-50%] rotate-[130deg]  bg-[#9B9C9C]"></span>

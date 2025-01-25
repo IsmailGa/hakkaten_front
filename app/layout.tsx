@@ -16,12 +16,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const theme = cookies().get('theme')?.value || 'light';
+  const theme = cookies().get('theme')?.value || 'dark';
 
   return (
     <html lang="en" className={theme === 'dark' ? 'dark' : ''}>
       <body className={`${nunito.className} antialiased bg-light_theme_body dark:bg-dark_theme_body`}>
-        {children}
+        <main className="ml-[270px] pt-[70px]">
+          {children}
+        </main>
       </body>
     </html>
   );

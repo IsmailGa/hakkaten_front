@@ -7,12 +7,12 @@ const theme = cookies().get('theme')?.value || 'light';
 
 
 export default function Home() {
-  return (
-    <>
-      <Header />
-      <SideBar theme={theme} />
-      <main className="min-h-[300vh] ml-[270px] pt-[70px]">
-      </main>
-    </>
-  );
+    return (
+        <>
+            <Header />
+            <SideBar theme={theme} />
+            <main className="min-h-[300vh] ml-[270px] pt-[70px]">
+            </main>
+        </>
+    );
 }

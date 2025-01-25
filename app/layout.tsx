@@ -1,17 +1,10 @@
+// app/layout.tsx
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { cookies } from 'next/headers';
+import { Nunito } from "next/font/google";
 import "./globals.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+const nunito = Nunito({ subsets: ["latin"], weight: "400" })
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,11 +16,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const theme = cookies().get('theme')?.value || 'light';
+
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html lang="en" className={theme === 'dark' ? 'dark' : ''}>
+      <body className={`${nunito.className} antialiased bg-light_theme_body dark:bg-dark_theme_body`}>
         {children}
       </body>
     </html>

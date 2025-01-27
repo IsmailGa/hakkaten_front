@@ -41,7 +41,7 @@ const PostsSection = () => {
                     const formattedDate = formatDate(item.date);
 
                     return (
-                        <div key={item.title} className="p-[20px] flex flex-col justify-between dark:bg-dark_theme_bg w-full rounded-[20px] w-full mb-4">
+                        <div key={item.title} className="p-[20px] flex flex-col justify-between dark:bg-dark_theme_bg w-full rounded-[20px] max-w-[50vw] mb-4">
                             <div className="flex flex-col gap-[15px] w-full">
                                 <div className="flex">
                                     <div className="flex flex-col w-full gap-[5px]">

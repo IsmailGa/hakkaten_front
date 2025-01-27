@@ -15,14 +15,15 @@ const SideBar = ({ theme }: { theme: string }) => {
             <div className="w-full mx-auto px-[25px]">
                 {/* TWO LINKS */}
                 <div className="grid grid-rows-4 flex-col items-center gap-[15px]">
-                    <Link href="/" className={`w-full h-[50px] py-[15px] pl-[25px] rounded-[50px] flex items-center gap-[10px] ${pathName === "/" ? "dark:text-black dark:bg-white bg-black text-white" : "text-[#B0B0B0] bg-[#1A1919]"}`}>
+
+                    <Link href="/" className={`w-full h-[50px] py-[15px] pl-[25px] rounded-[50px] flex items-center gap-[10px] ${pathName === "/" ? "dark:text-black dark:bg-white border-black border-[1px] text-black" : "dark:text-[#B0B0B0] dark:bg-[#1A1919] text-black "}`}>
                         <HomeIcon
                             isActive={pathName === "/"}
                             theme={theme}
                         />
                         Home
                     </Link>
-                    <Link href="/popular" className={`w-full h-[50px] py-[15px] pl-[25px] rounded-[50px] flex items-center gap-[10px] ${pathName === "/popular" ? "dark:text-black dark:bg-white bg-black text-white" : "text-[#B0B0B0] bg-[#1A1919]"}`}>
+                    <Link href="/popular" className={`w-full h-[50px] py-[15px] pl-[25px] rounded-[50px] flex items-center gap-[10px] ${pathName === "/popular" ? "dark:text-black dark:bg-white border-black border-[1px] text-black" : "dark:text-[#B0B0B0] dark:bg-[#1A1919] text-black "}`}>
                         <PopularIcon
                             isActive={pathName === "/popular"}
                             theme={theme}

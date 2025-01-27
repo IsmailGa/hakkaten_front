@@ -62,7 +62,7 @@ const PostsSection = () => {
                                         <h2 className="text-[25px] font-bold dark:text-white leading-[34px]">
                                             {item.title}
                                         </h2>
-                                        <p className="text-gray-600 dark:text-gray-300 line-clamp-4 max-w-[417px] leading-[25px]">
+                                        <p className="text-gray-600 dark:text-gray-300 line-clamp-4 max-w-[40vw] leading-[25px]">
                                             {item.descr}
                                         </p>
                                     </div>

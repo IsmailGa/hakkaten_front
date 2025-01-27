@@ -43,7 +43,7 @@ const PostsSection = () => {
           return (
             <div
               key={item.title}
-              className="p-[20px] flex flex-col justify-between dark:bg-dark_theme_bg w-full rounded-[20px] max-w-[50vw] mb-4"
+              className="p-[20px] flex flex-col justify-between dark:bg-dark_theme_bg dark:border-none border-[1px] border-black/15 w-full rounded-[20px] max-w-[50vw] mb-4"
             >
               <div className="flex flex-col gap-[15px] w-full">
                 <div className="flex gap-[30px]">
@@ -53,7 +53,7 @@ const PostsSection = () => {
                       {item.tags.map((tag, index) => (
                         <div
                           key={index}
-                          className="flex items-center px-[10px] py-[1px] gap-[5px] dark:text-white bg-[#9B9C9C15] rounded-[25px]"
+                          className="flex items-center px-[10px] py-[1px] gap-[5px] dark:bg-[#9B9C9C15] bg-black/80 text-white rounded-[25px]"
                         >
                           <span>#</span>
                           <p>{tag}</p>

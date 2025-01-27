@@ -13,8 +13,9 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-light_theme_body dark:bg-dark_theme_body h-[70px] flex items-center border-b-[1px] dark:border-[#3E4142]">
       <div className="flex justify-between w-full mx-auto md:px-[35px] sm:px-[25px] px-[20px]">
-        <Link href="/" className="flex items-center">
-          <Image src={Logo} alt="" />
+        <Link href="/" className="flex items-center gap-[10px]">
+          <Image src={Logo} alt="" className="max-w-[33px] h-auto" />
+          <h1 className="text-[30px] dark:text-white text-black font-bold">Hakkaten</h1>
         </Link>
         <div className="h-[40px] min-w-[380px] dark:bg-white bg-[#B0B0B0] text-black flex items-center rounded-[40px] px-[16px] py-[12px] gap-[12px]">
           <Image src={search_icon} alt="" className="w-[16px] h-[16px]" />

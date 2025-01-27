@@ -1,9 +1,9 @@
-export const HomeIcon = ({ isActive, theme }: { isActive: boolean, theme: string }) => {
+export const HomeIcon = ({ isActive, theme }: { isActive?: boolean, theme?: string }) => {
     const getStyle = () => {
         if (theme === 'dark') {
             return isActive ? 'black' : '#DADADA70';
         }
-        return isActive ? 'black' : '#DADADA70';
+        return isActive ? 'black' : '#00000080';
     };
 
     return (
@@ -17,12 +17,12 @@ export const HomeIcon = ({ isActive, theme }: { isActive: boolean, theme: string
 
 
 
-export const PopularIcon = ({ isActive, theme }: { isActive: boolean, theme: string }) => {
+export const PopularIcon = ({ isActive, theme }: { isActive?: boolean, theme?: string }) => {
     const getStyle = () => {
         if (theme === 'dark') {
             return isActive ? 'black' : '#DADADA70';
         }
-        return isActive ? 'black' : '#DADADA70';
+        return isActive ? 'black' : '#00000080';
     };
 
     return (

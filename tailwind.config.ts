@@ -29,6 +29,8 @@ const config: Config = {
   corePlugins: {
     fill: true,
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar')
+  ],
 };
 export default config;

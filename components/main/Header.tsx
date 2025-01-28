@@ -11,8 +11,9 @@ const nunito = Nunito({ subsets: ["latin"], weight: "600" });
 
 const Header = () => {
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-light_theme_body dark:bg-dark_theme_body h-[70px] flex items-center border-b-[1px] dark:border-[#3E4142]">
+    <header className="fixed top-0 left-0 w-full z-50 bg-light_theme_body dark:bg-dark_theme_body h-[70px] flex items-center border-b-[1px] dark:border-[#3E4142] border-black/30">
       <div className="flex justify-between w-full mx-auto md:px-[35px] sm:px-[25px] px-[20px]">
+        {/* LOGO */}
         <Link href="/" className="flex items-center gap-[10px]">
           <Image src={Logo} alt="" className="max-w-[33px] h-auto" />
           <h1 className="text-[30px] dark:text-white text-black font-bold">Hakkaten</h1>

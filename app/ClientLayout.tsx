@@ -11,7 +11,7 @@ export default function ClientLayout({ children, initialTheme }: {
 }) {
     const pathname = usePathname();
     const hideLayout = ['/login', '/register'].includes(pathname);
-    const [theme, setTheme] = useState(initialTheme);
+    const [theme] = useState(initialTheme);
 
     // Sync theme changes if needed (e.g., from a theme switcher)
     useEffect(() => {

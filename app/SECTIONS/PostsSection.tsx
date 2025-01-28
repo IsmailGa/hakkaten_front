@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { posts } from "@/data/posts";
 import { LikeIcon } from "@/public/icons";
 
-const PostsSection = () => {
+const PostsSection = ({ theme }: { theme?: string }) => {
   const [likedPosts, setLikedPosts] = useState<Set<string>>(new Set());
 
   const handleLike = (postId: string) => {
@@ -81,10 +81,10 @@ const PostsSection = () => {
                 <div className="flex justify-between w-full">
                   {/* LIKE BUTTON */}
                   <div
-                    className="flex items-center gap-[5px] cursor-pointer select-none text-white"
+                    className="flex items-center gap-[5px] cursor-pointer select-none dark:text-white text-black"
                     onClick={() => handleLike(item.id)}
                   >
-                    <LikeIcon isActive={isActive} />
+                    <LikeIcon isActive={isActive} theme={theme} />
                     {item.likes}
                   </div>
                   {/* COMMENT BUTTON */}

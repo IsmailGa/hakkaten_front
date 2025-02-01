@@ -3,7 +3,7 @@
 import { usePathname } from 'next/navigation';
 import Header from "@/components/main/Header";
 import SideBar from "@/components/main/Sidebar";
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 export default function ClientLayout({ children, initialTheme }: { 
     children: React.ReactNode, 
@@ -11,13 +11,7 @@ export default function ClientLayout({ children, initialTheme }: {
 }) {
     const pathname = usePathname();
     const hideLayout = ['/login', '/register'].includes(pathname);
-    const [theme, setTheme] = useState(initialTheme);
-
-    // Sync theme changes if needed (e.g., from a theme switcher)
-    useEffect(() => {
-        // You can add logic to update theme from cookies or context here
-    }, []);
-
+    const [theme] = useState(initialTheme);
     return (
         <>
             {!hideLayout && <Header />}

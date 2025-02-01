@@ -2,7 +2,7 @@ import { Nunito } from "next/font/google";
 
 const nunito = Nunito({ subsets: ["latin"], weight: "400" });
 
-export default function Layout({
+export default function LayoutRegister({
     children,
 }: Readonly<{
     children: React.ReactNode;

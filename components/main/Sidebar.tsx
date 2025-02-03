@@ -12,6 +12,9 @@ const SideBar = ({ theme }: { theme: string }) => {
     const pathName = usePathname();
     const [isTopicsOpen, setIsTopicsOpen] = useState(false);
     const [isResourcesOpen, setIsResourcesOpen] = useState(false);
+    
+
+   
 
     return (
         <div className="sidebar-scroll-custom h-[calc(100vh-70px)] max-w-[270px] w-full border-r-[1px] dark:border-[#3E4142] border-black/30 fixed pt-[35px] text-white left-0 top-[70px] overflow-y-auto hover:scrollbar-thin scrollbar-track-black/50 scrollbar-thumb-gray-600">

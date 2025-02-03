@@ -8,8 +8,8 @@ export default function LayoutRegister({
     children: React.ReactNode;
 }>) {
     return (
-        <div className={`${nunito.className} antialiased bg-light_theme_body dark:bg-dark_theme_body text-white`}>
-            <main className="flex items-center justify-center w-full h-screen">
+        <div className={`${nunito.className} h-full antialiased bg-light_theme_body dark:bg-dark_theme_body text-white`}>
+            <main className="flex items-center justify-center w-full h-full">
                 {children}
             </main>
         </div>

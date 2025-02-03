@@ -16,19 +16,20 @@ const nunito = Nunito({ subsets: ["latin"], weight: "500" })
 const LoginPage = () => {
     const router = useRouter();
     const [credentials, setCredentials] = useState({
-        email: '',
+        username: '',
         password: ''
     });
     const [error, setError] = useState('');
+
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
             const formData = new URLSearchParams();
-            formData.append('username', credentials.email);
+            formData.append('username', credentials.username);
             formData.append('password', credentials.password);
 
-            const response = await fetch('http://127.0.0.1:8000/api/v1/auth/login', {
+            const response = await fetch('http://localhost:8000/api/v1/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
@@ -72,9 +73,9 @@ const LoginPage = () => {
                     type="text"
                     name="email"
                     id="email"
-                    placeholder="E-mail"
-                    value={credentials.email}
-                    onChange={(e) => setCredentials({ ...credentials, email: e.target.value })}
+                    placeholder="Username"
+                    value={credentials.username}
+                    onChange={(e) => setCredentials({ ...credentials, username: e.target.value })}
                     className="outline-none dark:focus:border-white transition-all duration-300 dark:bg-[#9B9C9C15] border-[1px] dark:text-white text-black focus:border-black/50 dark:border-[#9B9C9C30] rounded-[50px] w-full h-[48px] px-[16px]" />
                 <input
                     type="text"
@@ -85,12 +86,13 @@ const LoginPage = () => {
                     onChange={(e) => setCredentials({ ...credentials, password: e.target.value })}
                     className="outline-none dark:focus:border-white transition-all duration-300 dark:bg-[#9B9C9C15] border-[1px] dark:text-white text-black focus:border-black/50 dark:border-[#9B9C9C30] rounded-[50px] w-full h-[48px] px-[16px]" />
                 {error && <div className="text-red-500">{error}</div>}
-                <Link href="/register">Don&apos;t have an account?</Link>
+                <Link href="/register" className='w-fit'>Don&apos;t have an account?</Link>
+                <div className="flex flex-col gap-[15px] w-full">
+                    <button className={`w-full h-[50px] bg-primary rounded-[50px] text-black text-[18px] font-medium leading-[25px] ${nunito.className}`}>Log in</button>
+                    <Link href="/register" className={`w-full h-[50px] flex items-center justify-center bg-secondary rounded-[50px] text-white text-[18px] font-medium leading-[25px] ${nunito.className}`}>Register</Link>
+                </div>
             </form>
-            <div className="flex flex-col gap-[15px] w-full">
-                <button className={`w-full h-[50px] bg-primary rounded-[50px] text-black text-[18px] font-medium leading-[25px] ${nunito.className}`}>Log in</button>
-                <Link href="/register" className={`w-full h-[50px] flex items-center justify-center bg-secondary rounded-[50px] text-white text-[18px] font-medium leading-[25px] ${nunito.className}`}>Register</Link>
-            </div>
+
         </div>
     )
 }

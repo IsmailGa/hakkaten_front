@@ -14,6 +14,7 @@ const nunito = Nunito({ subsets: ["latin"], weight: "500" })
 
 const RegisterPage = () => {
     const router = useRouter();
+    const [fullName, setFullName] = useState({ firstName: "", lastName: "" })
     const [formData, setFormData] = useState({
         username: '',
         email: '',
@@ -23,13 +24,14 @@ const RegisterPage = () => {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        const full_name = `${fullName.firstName} ${fullName.lastName}`;
         try {
-            const response = await fetch('http://127.0.0.1:8000/api/v1/users/register', {
+            const response = await fetch('http://localhost:8000/api/v1/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(formData),
+                body: JSON.stringify({ ...formData, full_name }),
             });
 
             if (!response.ok) {
@@ -60,9 +62,28 @@ const RegisterPage = () => {
             </div>
             <form className="flex flex-col gap-[25px]" onSubmit={handleSubmit}>
                 <div className="flex flex-col gap-[5px]">
-                    <h1 className="text-[24px] font-medium leading-[33px] dark:text-[#FFFFFF] text-black">Log in via Email</h1>
+                    <h1 className="text-[24px] font-medium leading-[33px] dark:text-[#FFFFFF] text-black">Registration</h1>
                 </div>
                 <input
+                    required
+                    type="text"
+                    name="firstName"
+                    id="firstName"
+                    placeholder="First Name"
+                    value={fullName.firstName}
+                    onChange={(e) => setFullName({ ...fullName, firstName: e.target.value })}
+                    className="outline-none dark:focus:border-white transition-all duration-300 dark:bg-[#9B9C9C15] border-[1px] dark:text-white text-black focus:border-black/50 dark:border-[#9B9C9C30] rounded-[50px] w-full h-[48px] px-[16px]" />
+                <input
+                    required
+                    type="text"
+                    name="lastName"
+                    id="lastName"
+                    placeholder="Last Name"
+                    value={fullName.lastName}
+                    onChange={(e) => setFullName({ ...fullName, lastName: e.target.value })}
+                    className="outline-none dark:focus:border-white transition-all duration-300 dark:bg-[#9B9C9C15] border-[1px] dark:text-white text-black focus:border-black/50 dark:border-[#9B9C9C30] rounded-[50px] w-full h-[48px] px-[16px]" />
+                <input
+                    required
                     type="text"
                     name="username"
                     id="username"
@@ -71,6 +92,7 @@ const RegisterPage = () => {
                     onChange={(e) => setFormData({ ...formData, username: e.target.value })}
                     className="outline-none dark:focus:border-white transition-all duration-300 dark:bg-[#9B9C9C15] border-[1px] dark:text-white text-black focus:border-black/50 dark:border-[#9B9C9C30] rounded-[50px] w-full h-[48px] px-[16px]" />
                 <input
+                    required
                     type="text"
                     name="email"
                     id="email"
@@ -79,6 +101,7 @@ const RegisterPage = () => {
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     className="outline-none dark:focus:border-white transition-all duration-300 dark:bg-[#9B9C9C15] border-[1px] dark:text-white text-black focus:border-black/50 dark:border-[#9B9C9C30] rounded-[50px] w-full h-[48px] px-[16px]" />
                 <input
+                    required
                     type="text"
                     name="password"
                     id="password"
@@ -87,10 +110,10 @@ const RegisterPage = () => {
                     onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                     className="outline-none dark:focus:border-white transition-all duration-300 dark:bg-[#9B9C9C15] border-[1px] dark:text-white text-black focus:border-black/50 dark:border-[#9B9C9C30] rounded-[50px] w-full h-[48px] px-[16px]" />
                 {error && <div className="text-red-500">{error}</div>}
-                <Link href="/login">Already have an account?</Link>
+                <Link href="/login" className='w-fit'>Already have an account?</Link>
+                <button type='submit' className={`w-full h-[50px] bg-primary  rounded-[50px] text-black text-[18px] font-medium leading-[25px] ${nunito.className}`}>Register</button>
             </form>
             <div className="flex flex-col gap-[15px] w-full">
-                <button className={`w-full h-[50px] bg-primary  rounded-[50px] text-black text-[18px] font-medium leading-[25px] ${nunito.className}`}>Register</button>
                 <Link href="/login" className={`w-full h-[50px] flex items-center justify-center bg-secondary rounded-[50px] text-white text-[18px] font-medium leading-[25px] ${nunito.className}`}>Log in</Link>
             </div>
         </div>
